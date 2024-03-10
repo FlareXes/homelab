@@ -1,0 +1,11 @@
+portainer.homelab.local {
+	reverse_proxy portainer:9000
+}
+
+ollama.homelab.local {
+	reverse_proxy ollama:11434
+}
+
+anythingllm.homelab.local {
+	reverse_proxy anythingllm:3001
+}

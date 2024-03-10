@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  anythingllm:
+    container_name: anythingllm
+    image: ghcr.io/mintplex-labs/anything-llm:latest
+    restart: unless-stopped
+    networks:
+      - homelab_caddy
+
+networks:
+  homelab_caddy:
+    external: true
+    name: "homelab_caddy"
