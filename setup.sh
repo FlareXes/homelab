@@ -20,7 +20,6 @@ if [[ $1 == "up" ]]; then
     # Update /etc/hosts if entry does not exist
     grep -qxF "127.0.0.1  ollama.homelab.local" /etc/hosts || echo "127.0.0.1  ollama.homelab.local" >> /etc/hosts
     grep -qxF "127.0.0.1  portainer.homelab.local" /etc/hosts || echo "127.0.0.1  portainer.homelab.local" >> /etc/hosts    
-    grep -qxF "127.0.0.1  anythingllm.homelab.local" /etc/hosts || echo "127.0.0.1  anythingllm.homelab.local" >> /etc/hosts
     
 elif [[ $1 == "down" ]]; then
     for file in $(find . -type f -name 'docker-compose.yml'); do
