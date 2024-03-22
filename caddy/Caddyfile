@@ -6,6 +6,6 @@ ollama.homelab.local {
 	reverse_proxy ollama:11434
 }
 
-anythingllm.homelab.local {
-	reverse_proxy anythingllm:3001
+google.homelab.local {
+	reverse_proxy whoogle:5000
 }
