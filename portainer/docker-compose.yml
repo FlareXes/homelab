@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - homelab_caddy
+
+networks:
+  homelab_caddy:
+    external: true
+    name: "homelab_caddy"
+
+volumes:
+  portainer_data:
