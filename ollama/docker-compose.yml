@@ -14,6 +14,7 @@ services:
         reservations:
           devices:
             - driver: nvidia
+              device_ids: [ '0' ] # `nvidia-smi --list-gpus` To get the device IDs for NVIDIA GPUs
               capabilities: [ gpu ]
 
 volumes:
