@@ -10,6 +10,10 @@ ollama.homelab.local {
 	reverse_proxy ollama:11434
 }
 
+webui.homelab.local {
+	reverse_proxy open-webui:8080
+}
+
 google.homelab.local {
 	reverse_proxy whoogle:5000
 }

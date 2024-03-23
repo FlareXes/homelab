@@ -38,6 +38,7 @@ if [[ $1 == "up" ]]; then
 
     # Update /etc/hosts if entry does not exist
     add_to_hosts "127.0.0.1  ollama.homelab.local"
+    add_to_hosts "127.0.0.1  webui.homelab.local"
     add_to_hosts "127.0.0.1  portainer.homelab.local"
     add_to_hosts "127.0.0.1  google.homelab.local"
     add_to_hosts "127.0.0.1  homelab.local"

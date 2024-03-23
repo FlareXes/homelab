@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   ollama:
-    image: ollama/ollama
+    image: ollama/ollama:latest
     container_name: ollama
     restart: unless-stopped
     volumes:
@@ -17,8 +17,24 @@ services:
               device_ids: [ '0' ] # `nvidia-smi --list-gpus` To get the device IDs for NVIDIA GPUs
               capabilities: [ gpu ]
 
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: unless-stopped
+    volumes:
+      - open-webui:/app/backend/data
+    networks:
+      - homelab_caddy
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    depends_on:
+      - ollama
+
 volumes:
   ollama_data:
+  open-webui:
 
 
 networks:
