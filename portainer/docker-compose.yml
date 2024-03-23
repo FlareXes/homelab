@@ -11,6 +11,17 @@ services:
     networks:
       - homelab_caddy
 
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - ./homarr/configs:/app/data/configs
+      - ./homarr/icons:/app/public/icons
+      - ./homarr/data:/data
+    networks:
+      - homelab_caddy
+
 networks:
   homelab_caddy:
     external: true

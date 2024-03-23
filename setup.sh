@@ -40,6 +40,7 @@ if [[ $1 == "up" ]]; then
     add_to_hosts "127.0.0.1  ollama.homelab.local"
     add_to_hosts "127.0.0.1  portainer.homelab.local"
     add_to_hosts "127.0.0.1  google.homelab.local"
+    add_to_hosts "127.0.0.1  homelab.local"
 
 elif [[ $1 == "down" ]]; then
     # Stop specific containers

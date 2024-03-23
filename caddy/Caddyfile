@@ -1,3 +1,7 @@
+homelab.local {
+	reverse_proxy homarr:7575
+}
+
 portainer.homelab.local {
 	reverse_proxy portainer:9000
 }
