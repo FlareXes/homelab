@@ -34,13 +34,11 @@ if [[ $1 == "up" ]]; then
     up_container "caddy"
     up_container "ollama"
     up_container "portainer"
-    up_container "whoogle"
 
     # Update /etc/hosts if entry does not exist
     add_to_hosts "127.0.0.1  ollama.homelab.local"
     add_to_hosts "127.0.0.1  webui.homelab.local"
     add_to_hosts "127.0.0.1  portainer.homelab.local"
-    add_to_hosts "127.0.0.1  google.homelab.local"
     add_to_hosts "127.0.0.1  homelab.local"
 
 elif [[ $1 == "down" ]]; then
@@ -48,7 +46,6 @@ elif [[ $1 == "down" ]]; then
     down_container "caddy"
     down_container "ollama"
     down_container "portainer"
-    down_container "whoogle"
 
 else
     echo "Usage: $0 [up|down]"
