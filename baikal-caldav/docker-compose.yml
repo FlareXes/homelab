@@ -1,0 +1,15 @@
+services:
+  baikal:
+    image: ckulka/baikal:nginx
+    restart: unless-stopped
+    volumes:
+      - ./config:/var/www/baikal/config
+      - ./Specific:/var/www/baikal/Specific
+    labels:
+      - "traefik.http.routers.baikal.rule=Host(`caldav.docker.localhost`)"
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external: true
