@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: baikal-deploy
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: baikal-deploy
+  template:
+    metadata:
+      labels:
+        app: baikal-deploy
+    spec:
+      containers:
+        - name: baikal
+          image: ckulka/baikal:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: config-volume
+              mountPath: /var/www/baikal/config
+            - name: specific-volume
+              mountPath: /var/www/baikal/Specific
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+      volumes:
+        - name: config-volume
+          hostPath:
+            path: /opt/self-hosting/kubernetes/baikal/config
+            type: DirectoryOrCreate
+        - name: specific-volume
+          hostPath:
+            path: /opt/self-hosting/kubernetes/baikal/Specific
+            type: DirectoryOrCreate
