@@ -1,0 +1,44 @@
+# Constants to use in the configuration file
+constants:
+  remote_user: root
+  remote_addr: 192.168.1.3
+  remote_repo: demo-repo
+  ssh_config: server
+
+# List of source directories to backup
+source_directories:
+  - /home
+
+# Exclude patterns to ignore specific files or directories
+exclude_patterns:
+  - ~/.cache
+
+# Paths of local or remote repositories to back up to
+repositories:
+  # - path: ssh://{remote_user}@{remote_addr}/home/{remote_user}/{remote_repo}
+  - path: ssh://{ssh_config}/home/{remote_user}/{remote_repo}
+    label: server
+
+# Command to retrieve the encryption passphrase
+encryption_passcommand: secret-tool lookup passphrase borg
+
+# Retention policy for how many backups to keep
+keep_daily: 7
+keep_weekly: 4
+keep_monthly: 6
+
+# Checks to perform during backup
+checks:
+  - name: disabled
+
+################################################################################
+#
+# Step 1: Init Repo
+# ```bash
+# borgmatic init --encryption repokey-blake2 --verbosity 1 --syslog-verbosity 2
+# ```
+# Step 2: Backup
+# ```bash
+# borgmatic create --stats --verbosity 1 --syslog-verbosity 2
+#
+################################################################################
